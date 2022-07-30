@@ -52,6 +52,10 @@ public UserDto createUser(UserDto user) {
 			user.getAddresses().set(i, address);
 		}
 		
+		user.getContact().setContactId(util.generateStringId(30));
+		user.getContact().setUser(user);
+		
+		System.out.println(user.getContact().getContactId());
 		
         ModelMapper modelMapper = new ModelMapper();
 		

@@ -1,0 +1,51 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+public class ContactEntity implements Serializable {
+
+	private static final long serialVersionUID = -615540470244391395L;
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@NotBlank
+	@Column(length=30)
+	private String conatactId;
+	
+	@NotBlank
+	private String mobile;
+	private String skip;
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getConatactId() {
+		return conatactId;
+	}
+	public void setConatactId(String conatactId) {
+		this.conatactId = conatactId;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getSkip() {
+		return skip;
+	}
+	public void setSkip(String skip) {
+		this.skip = skip;
+	}
+	
+	
+}

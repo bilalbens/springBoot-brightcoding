@@ -31,6 +31,7 @@ public class UserRequest {
 	
 	private List<AddressRequest> addresses;
 	
+	private ContactRequest contact;
 	
 	
 	
@@ -63,6 +64,12 @@ public class UserRequest {
 	}
 	public void setAddresses(List<AddressRequest> addresses) {
 		this.addresses = addresses;
+	}
+	public ContactRequest getContact() {
+		return contact;
+	}
+	public void setContact(ContactRequest contact) {
+		this.contact = contact;
 	}
 
 	

@@ -1,0 +1,18 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+public class ContactEntity implements Serializable {
+
+	private static final long serialVersionUID = -615540470244391395L;
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	private String conatactId;
+	private String mobile;
+	private String skip;
+}

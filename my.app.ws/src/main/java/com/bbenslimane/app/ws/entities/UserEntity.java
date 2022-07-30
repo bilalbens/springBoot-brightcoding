@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -41,6 +42,8 @@ public class UserEntity implements Serializable {
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL)
 	private List<AddressEntity> addresses;
 	
+	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
+	private ContactEntity  contact;
 	
 	
 	
@@ -98,6 +101,12 @@ public class UserEntity implements Serializable {
 	}
 	public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
 		this.emailVerificationStatus = emailVerificationStatus;
+	}
+	public ContactEntity getContact() {
+		return contact;
+	}
+	public void setContact(ContactEntity contact) {
+		this.contact = contact;
 	}
 
 }

@@ -1,0 +1,9 @@
+package com.bbenslimane.app.ws.requests;
+
+public class ContactRequest {
+
+	private String mobile;
+	private String skype;
+	
+	
+}

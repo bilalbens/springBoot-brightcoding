@@ -1,0 +1,11 @@
+package com.bbenslimane.app.ws.shard.dto;
+
+public class ContactDto {
+	
+	private String id;
+	private String contactId;
+	private String mobile;
+	private String skype;
+	private UserDto user;
+
+}

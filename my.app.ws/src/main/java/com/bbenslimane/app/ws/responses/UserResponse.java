@@ -9,6 +9,7 @@ public class UserResponse {
 	private String secondName;
 	private String email;
 	private List<AddressResponse> addresses;
+	private ContactResponse contact;
 
 	public String getUserId() {
 		return userId;
@@ -48,6 +49,14 @@ public class UserResponse {
 
 	public void setAddresses(List<AddressResponse> addresses) {
 		this.addresses = addresses;
+	}
+
+	public ContactResponse getContact() {
+		return contact;
+	}
+
+	public void setContact(ContactResponse contact) {
+		this.contact = contact;
 	}
 
 }
