@@ -1,0 +1,7 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+public class AddressEntity implements Serializable {
+
+}

@@ -1,0 +1,12 @@
+package com.bbenslimane.app.ws.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+public class AppExceptionHandler {
+	
+	UserException  userException 
+	
+	public ResponseEntity<Object> HandlerUserException()
+
+}

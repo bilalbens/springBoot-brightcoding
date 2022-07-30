@@ -1,0 +1,17 @@
+package com.bbenslimane.app.ws.shard.dto;
+
+import java.io.Serializable;
+
+public class UserDto implements Serializable {
+	
+	private long id;
+	private String userId;
+	private String firstName;
+	private String secondName;
+	private String email;
+	private String password;
+	private String encryptedPassword;
+	private String emailVerificationToken;
+	private boolean emailVerificationStatus;
+
+}

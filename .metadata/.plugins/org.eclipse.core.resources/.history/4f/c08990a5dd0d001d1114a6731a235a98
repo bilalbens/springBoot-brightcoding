@@ -1,0 +1,13 @@
+package com.bbenslimane.app.ws.shard.dto;
+
+public class AdressDto {
+	
+	private long id;
+	private String city;
+	private String country;
+	private String street;
+	private String postal_code;
+	private String type;
+	private UserDto user;
+
+}

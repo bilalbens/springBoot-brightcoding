@@ -1,0 +1,13 @@
+package com.bbenslimane.app.ws.shard;
+
+public class Utils {
+	
+	private final Random RANDOM = SecureRandom();
+	private final String ALPHABET = "0123456789abcdefghijklmnopqrstuwxyz";
+	
+	public String generateUserId(int length) {
+		StringBuilder returnValue = new StringBuilder(length);
+		
+	}
+
+}

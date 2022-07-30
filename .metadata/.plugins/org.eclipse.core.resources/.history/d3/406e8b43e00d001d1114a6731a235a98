@@ -1,0 +1,19 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+import com.bbenslimane.app.ws.shard.dto.UserDto;
+
+public class AddressEntity implements Serializable {
+
+	private static final long serialVersionUID = -8153060599057923533L;
+	
+	private long id;
+	private String city;
+	private String country;
+	private String street;
+	private String postal_code;
+	private String type;
+	private UserDto user;
+
+}

@@ -1,0 +1,30 @@
+package com.bbenslimane.app.ws.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/users")  //localhost:8080/users
+
+public class UserController {
+	
+	public String getUser() {
+		return "get user was called";
+	}
+	
+	public String createUser() {
+		return "create user was called";
+	}
+
+	
+	public String updateUser() {
+		return "update user was called";
+	}
+
+	
+	public String deleteUser() {
+		return "delete user was called";
+	}
+
+
+}

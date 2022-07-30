@@ -1,0 +1,12 @@
+package com.bbenslimane.app.ws.exception;
+
+public class UserException extends RuntimeException {
+
+	private static final long serialVersionUID = 177415409302955067L;
+	
+	public UserException(String message) {
+		super(message);
+		
+	}
+
+}

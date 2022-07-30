@@ -1,0 +1,10 @@
+package com.bbenslimane.app.ws.responses;
+
+import java.sql.Date;
+
+public class ErrorMessage {
+	
+	private Date timestamp;
+	private String message;
+
+}

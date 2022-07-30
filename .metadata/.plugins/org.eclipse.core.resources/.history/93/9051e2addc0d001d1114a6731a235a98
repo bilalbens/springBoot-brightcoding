@@ -1,0 +1,11 @@
+package com.bbenslimane.app.ws.requests;
+
+public class AddressRequest {
+	
+	private String city;
+	private String country;
+	private String street;
+	private String postal_code;
+	private String type;
+
+}

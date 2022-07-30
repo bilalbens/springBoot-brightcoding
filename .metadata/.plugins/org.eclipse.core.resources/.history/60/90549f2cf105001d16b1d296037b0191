@@ -1,0 +1,8 @@
+package com.bbenslimane.app.ws.shard;
+
+public class Utils {
+	
+	private final Random RANDOM = SecureRandom();
+	private final String 
+
+}

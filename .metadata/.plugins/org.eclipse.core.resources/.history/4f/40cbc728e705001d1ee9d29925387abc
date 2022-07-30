@@ -1,0 +1,9 @@
+package com.bbenslimane.app.ws.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.bbenslimane.app.ws.entities.UserEntity;
+
+public class UserRepository implements CrudRepository<UserEntity, Long> {
+
+}

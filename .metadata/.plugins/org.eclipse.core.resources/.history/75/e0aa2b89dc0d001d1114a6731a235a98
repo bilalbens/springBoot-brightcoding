@@ -1,0 +1,5 @@
+package com.bbenslimane.app.ws.requests;
+
+public class AddressRequest {
+
+}

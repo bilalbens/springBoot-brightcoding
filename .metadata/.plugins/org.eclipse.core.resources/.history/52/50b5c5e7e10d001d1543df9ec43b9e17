@@ -1,0 +1,46 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.bbenslimane.app.ws.shard.dto.UserDto;
+
+
+Entity(name="addresses")
+public class AddressEntity implements Serializable {
+
+	private static final long serialVersionUID = -8153060599057923533L;
+	
+	
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(length=30, nullable=false)
+	private String addressId;
+	
+	@Column(length=20, nullable=false)
+	private String city;
+	
+	@Column(length=20, nullable=false)
+	private String country;
+	
+	@Column(length=50, nullable=false)
+	private String street;
+	
+	@Column(length=7, nullable=false)
+	private String postal_code;
+	
+	@Column(length=20, nullable=false)
+	private String type;
+
+	@ManyToOne
+	@JoinColumn(name="users_id")   //users_id is a foreign key from users table,  users_id = table name(users) + primary key(id) 
+	private UserDto user;
+	
+
+}

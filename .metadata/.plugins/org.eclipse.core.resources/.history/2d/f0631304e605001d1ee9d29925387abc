@@ -1,0 +1,36 @@
+package com.bbenslimane.app.ws.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
+
+@Entity(name="users")
+public class UserEntity implements Serializable {
+
+	private static final long serialVersionUID = -6180220990563365202L;
+	
+	@Id				// primary key
+	@GeneratedValue   // auto increment in db
+	private long id;
+	private String userId;
+	
+	@Column(nullable=false, length=50)
+	private String firstName;
+	@Column(nullable=false, length=50)
+	private String secondName;
+	@Column(nullable=false, length=120)
+	private String email;
+	@Column(nullable=false)
+	private String encryptedPassword;
+	@Column(nullable=true)
+	private String emailVerificationToken;
+	@Column(columnDefintione="boolean default false")
+	private Boolean emailVerificationStatus;
+	
+
+}

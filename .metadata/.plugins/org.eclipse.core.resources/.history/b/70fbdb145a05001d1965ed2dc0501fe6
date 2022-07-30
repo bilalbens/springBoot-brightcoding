@@ -1,0 +1,15 @@
+package com.bbenslimane.app.ws.shard.dto;
+
+public class UserDto {
+	
+	private long id;
+	private String userId;
+	private String firstName;
+	private String secondName;
+	private String email;
+	private String password;
+	private String encryptedPassword;
+	private String emailVerificationToken;
+	private boolean emailVerificationStatus;
+
+}

@@ -1,0 +1,7 @@
+package com.bbenslimane.app.ws.security;
+
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
+public class AuthorizationFilter  extends BasicAuthenticationFilter{
+
+}

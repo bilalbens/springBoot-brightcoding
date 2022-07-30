@@ -1,0 +1,13 @@
+package com.bbenslimane.app.ws.responses;
+
+public enum ErrorMessages {
+	
+	
+	Missing_REQUIRED_FIELD("Missing Required Field.");
+	RECORD_ALREADY_EXISTS("Record already exists.");
+
+	ErrorMessages(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

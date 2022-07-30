@@ -1,0 +1,11 @@
+package com.bbenslimane.app.ws.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+public class AppExceptionHandler {
+	
+	
+	public ResponseEntity<Object> HandlerUserException(userException ex, WebReauest reauest )
+
+}

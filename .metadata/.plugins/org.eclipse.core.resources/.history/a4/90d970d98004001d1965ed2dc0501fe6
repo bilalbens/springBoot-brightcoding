@@ -1,0 +1,15 @@
+package com.bbenslimane.app.ws.requests;
+
+public class UserRequest {
+	private String firstName;
+	private String secondName;
+	private String email;
+	private String password;
+
+
+}
+
+"firstName": "Bilal",
+"secondName": "Benslimane",
+"email": "Bilal@gmail.com",
+"password": "Bilal123"

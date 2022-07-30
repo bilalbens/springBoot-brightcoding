@@ -1,0 +1,11 @@
+package com.bbenslimane.app.ws;
+
+public class UserResponse {
+	
+	private String userId;
+	private String secondName;
+	private String email;
+	private String password;
+	
+
+}

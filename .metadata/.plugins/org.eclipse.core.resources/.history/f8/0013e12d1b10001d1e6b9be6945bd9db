@@ -1,0 +1,5 @@
+package com.bbenslimane.app.ws.responses;
+
+public class AddressResponse {
+
+}

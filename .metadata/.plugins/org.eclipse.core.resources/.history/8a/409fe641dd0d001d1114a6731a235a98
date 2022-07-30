@@ -1,0 +1,5 @@
+package com.bbenslimane.app.ws.shard.dto;
+
+public class AdressDto {
+
+}

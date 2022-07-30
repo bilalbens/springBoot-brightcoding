@@ -1,0 +1,30 @@
+package com.bbenslimane.app.ws.services.imp;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bbenslimane.app.ws.entities.UserEntity;
+import com.bbenslimane.app.ws.repositories.UserRepository;
+import com.bbenslimane.app.ws.services.UserService;
+import com.bbenslimane.app.ws.shard.dto.UserDto;
+
+
+@Service
+public class UserServiceImp implements UserService {
+	
+	@Autowired
+	UserRepository userRepository;
+	@Override
+	public UserDto createUser(UserDto user) {
+		UserEntity userEntity = new UserEntity();
+		BeanUtils.copyProperties(user, userEntity);
+		
+		UserEntity newUser = userRepository.save(userEntity);
+		
+		UserDto userDto = new UserDto();
+		BeanUtils.copyProperties(newUser, userEntity);
+		return null;
+	}
+
+}

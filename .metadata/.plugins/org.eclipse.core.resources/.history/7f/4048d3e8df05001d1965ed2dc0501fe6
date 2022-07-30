@@ -1,0 +1,11 @@
+package com.bbenslimane.app.ws.services;
+
+import com.bbenslimane.app.ws.shard.dto.UserDto;
+
+public interface UserService {
+	
+	UserDto createUser(UserDto userDto) {
+		
+	}
+
+}
