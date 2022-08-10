@@ -55,7 +55,7 @@ public UserDto createUser(UserDto user) {
 		user.getContact().setContactId(util.generateStringId(30));
 		user.getContact().setUser(user);
 		
-		System.out.println(user.getContact().getContactId());
+//		System.out.println(user.getContact().getContactId());
 		
         ModelMapper modelMapper = new ModelMapper();
 		
@@ -92,10 +92,9 @@ public UserDto createUser(UserDto user) {
 		if (userEntity == null)
 			throw new UsernameNotFoundException(email);
 
-		UserDto userDto = new UserDto();
 
-		BeanUtils.copyProperties(userEntity, userDto);
-
+		ModelMapper modelMapper = new ModelMapper();
+		UserDto userDto = modelMapper.map(userEntity, UserDto.class);
 		return userDto;
 	}
 
@@ -106,9 +105,8 @@ public UserDto createUser(UserDto user) {
 		if (userEntity == null)
 			throw new UsernameNotFoundException(userId);
 
-		UserDto userDto = new UserDto();
-
-		BeanUtils.copyProperties(userEntity, userDto);
+		ModelMapper modelMapper = new ModelMapper();
+		UserDto userDto = modelMapper.map(userEntity, UserDto.class);
 
 		return userDto;
 	}
@@ -145,7 +143,7 @@ public UserDto createUser(UserDto user) {
 	}
 
 	@Override
-	public List<UserDto> getUsers(int page, int limit) {
+	public List<UserDto> getUsers(int page, int limit, String search, int status) {
 		
 		
 		if(page > 0) page -= 1;
@@ -154,17 +152,21 @@ public UserDto createUser(UserDto user) {
 		List<UserDto> usersDto = new ArrayList<UserDto>();
 		
 		Pageable pageableRequest = PageRequest.of(page, limit);
-		
-		Page<UserEntity> userPage =  userRepository.findAll(pageableRequest);
-		
+
+		Page<UserEntity> userPage;
+		if(search.isEmpty()){
+				userPage =  userRepository.findAllUsers(pageableRequest);
+		}else{
+				userPage =  userRepository.findAllUserByCriteria(pageableRequest, search , status);
+		}
+
 		List<UserEntity> users = userPage.getContent();
 				
 		for(UserEntity userEntity : users) {
 					
-					UserDto user = new UserDto();
-					
-					BeanUtils.copyProperties(userEntity, user);
-					
+					ModelMapper modelMapper = new ModelMapper();
+					UserDto user = modelMapper.map(userEntity, UserDto.class);
+
 					usersDto.add(user);			
 				}
 		

@@ -10,15 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.bbenslimane.app.ws.responses.ErrorMessages;
 import com.bbenslimane.app.ws.responses.UserResponse;
@@ -28,6 +20,9 @@ import com.bbenslimane.app.ws.shard.dto.UserDto;
 import com.bbenslimane.app.ws.exception.UserException;
 import com.bbenslimane.app.ws.requests.UserRequest;
 
+
+
+@CrossOrigin(origins = "*")  //apply corss for all functions in this controller
 @RestController
 @RequestMapping("/users")  //localhost:8080/users
 
@@ -46,28 +41,44 @@ public class UserController {
 	public ResponseEntity<UserResponse>   getUser(@PathVariable String id) {
 		
 		UserDto userDto = userService.getUserByUserId(id);
-		
-		UserResponse userResponse = new UserResponse();
-		
-		BeanUtils.copyProperties(userDto, userResponse);
-		
+		System.out.println("userDto");
+		System.out.println(userDto);
+//		UserResponse userResponse = new UserResponse();
+//		BeanUtils.copyProperties(userDto, userResponse);
+
+		ModelMapper modelMapper = new ModelMapper();
+		UserResponse userResponse = modelMapper.map(userDto, UserResponse.class);
+
+
 		return new ResponseEntity<>(userResponse, HttpStatus.OK) ;
 		
 		
 	}
-	
+
+
+
+//	@CrossOrigin(origins = {"http://localhost:4200", "http://mydomaim.com"})  // apply cross only for this fucntion
+//	@CrossOrigin(origins = "*")
 	@GetMapping(produces={MediaType.APPLICATION_JSON_VALUE,  MediaType.APPLICATION_XML_VALUE})
-	public List<UserResponse> getUsers(@RequestParam(value="page", defaultValue="1") int page ,@RequestParam(value="limit", defaultValue="15") int limit ){
+	public List<UserResponse> getUsers(@RequestParam(value="page", defaultValue="1") int page ,
+									   @RequestParam(value="limit", defaultValue="15") int limit,
+									   @RequestParam(value="search", defaultValue="") String search,
+									   @RequestParam(value="status", defaultValue="1") int status
+									   ){
 		
 		List<UserResponse> usersResponse = new ArrayList<UserResponse>();
-		
-		List<UserDto> users = userService.getUsers(page, limit);
-		
+
+
+		List<UserDto> users = userService.getUsers(page, limit, search, status);
+
+
+		ModelMapper modelMapper = new ModelMapper();
 		for(UserDto userDto : users) {
-			
-			UserResponse user = new UserResponse();
-			
-			BeanUtils.copyProperties(userDto, user);
+
+//			UserResponse user = new UserResponse();
+//			BeanUtils.copyProperties(userDto, user);
+
+			UserResponse user = modelMapper.map(userDto, UserResponse.class);
 			
 			usersResponse.add(user);			
 		}

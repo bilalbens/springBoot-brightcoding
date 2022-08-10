@@ -13,11 +13,30 @@
 	<artifactId>my.app.ws</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>my.app.ws</name>
+	<packaging>war</packaging>
 	<description>com.bbenslimane.app.ws</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
+
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
